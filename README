@@ -1,0 +1,78 @@
+ 
+# Project Name
+
+Still need to find some description 
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+- [Usage](#usage)
+- [API Documentation](#api-documentation)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Introduction
+
+Provide a brief introduction to your project, its purpose, and any other relevant information.
+
+## Features
+
+List key features or functionalities of your project.
+
+- posts 
+- ...
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- MongoDB
+- Express js 
+- Cloudnary
+- ....
+
+### Installation
+
+1. Clone the repository.
+   ```bash
+   git clone https://github.com/pavan6476252/hybrid-app-backend.git
+   cd your-repository
+   ```
+
+2. Install dependencies.
+   ```bash
+   npm install
+   ```
+
+### Configuration
+
+Provide information about any configuration that needs to be set up, such as environment variables or database connections.
+
+## Usage
+
+Explain how to use your project. Include any important commands, scripts, or steps.
+
+## API Documentation
+
+For detailed API documentation, refer to the [Online Documentation](https://documenter.getpostman.com/view/12805741/2s9YeBeu3h).
+
+## Contributing
+
+Explain how others can contribute to your project. Include information about issues, pull requests, and any contribution guidelines.
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make changes and commit.
+4. Push to your fork and submit a pull request.
+
+## License
+
+This project is licensed under the [UNKOWN] - see the [LICENSE](LICENSE) file for details.
+
+ 

@@ -1,0 +1,5 @@
+node_modules
+src/config/cloudnary_config
+src/config/mongodb_config
+src/config/serviceAccount
+src/config
