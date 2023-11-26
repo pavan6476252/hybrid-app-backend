@@ -36,6 +36,17 @@ const userSchema = new mongoose.Schema(
                 ref: 'User',
             }
         ],
+        address:{
+            city:String,
+            street:String,
+            number:Number,
+            zipcode:String,
+            geolocation:{
+                lat:String,
+                long:String
+            }
+        },
+        phone:String
     },
     {
         timestamps: true,

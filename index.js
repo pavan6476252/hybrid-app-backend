@@ -14,7 +14,8 @@ const swaggerSpec = require('./src/config/swagger_conf')
 const app = express()
 const cors = require('cors')
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/api/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 
 
 
@@ -30,11 +31,24 @@ const userRoutes = require('./src/routes/users')
 const postRoutes = require('./src/routes/posts')
 const likesRoutes = require('./src/routes/likes')
 
+const productRoute = require('./src/routes/ecom/productRoute')
+const categoryRoute = require('./src/routes/ecom/categoryRoute')
+const cartRoute = require('./src/routes/ecom/cartRoute')
+const offersRoute = require('./src/routes/ecom/offersRoute')
+const reviewsRoute = require('./src/routes/ecom/reviewsRoute')
+
 // use routes
 
 app.use('/api', userRoutes);
 app.use('/api', postRoutes);
 app.use('/api', likesRoutes);
+
+
+app.use('/api', productRoute);
+app.use('/api', categoryRoute);
+app.use('/api', cartRoute);
+app.use('/api', offersRoute);
+app.use('/api', reviewsRoute);
 
 
 
