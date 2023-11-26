@@ -7,6 +7,7 @@ const Like = require('../schema/likeModel');
 const cloudinary = require('../config/cloudnary_config');
 const isAuthenticated = require('../middleware/firebase_mw');
 const { isValidObjectId } = require('mongoose');
+const User = require('../schema/userSchema');
 
 const upload = multer({ dest: 'uploads/' });
 
@@ -97,8 +98,9 @@ router.put('/posts/:postId', isAuthenticated, async (req, res) => {
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }
+    const user = await User.findOne({ uid :req.user.uid });
 
-    if (post.uid !== req.user.uid) {
+    if (post.author !== user.uid) {
       return res.status(403).json({ message: 'Unauthorized: User does not own the post' });
     }
 
