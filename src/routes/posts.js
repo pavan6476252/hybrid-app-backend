@@ -45,9 +45,12 @@ router.post('/posts', isAuthenticated, upload.array('images', 5), async (req, re
 
 router.get('/posts', async (req, res) => {
   try {
-    const { userId } = req.body;
+    const { userId, page = 0 } = req.body;
 
-    const posts = await Post.find().populate('author likes').exec();
+   
+    const posts = await Post.find({}).populate('author likes').skip((page * 10)).limit(10).exec();
+  
+
     const modifiedPosts = posts.map(post => {
       const likeCount = post.likes.length;
       const isLikedByCurrentUser = post.likes.some(like => like.user.toString() === userId);
@@ -98,7 +101,7 @@ router.put('/posts/:postId', isAuthenticated, async (req, res) => {
     if (!post) {
       return res.status(404).json({ message: 'Post not found' });
     }
-    const user = await User.findOne({ uid :req.user.uid });
+    const user = await User.findOne({ uid: req.user.uid });
 
     if (post.author !== user.uid) {
       return res.status(403).json({ message: 'Unauthorized: User does not own the post' });

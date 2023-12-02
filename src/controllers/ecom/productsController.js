@@ -6,8 +6,12 @@ const User = require('../../schema/userSchema');
 // Add a new product
 exports.addProduct = async (req, res) => {
     const { name, description, price, quantityAvailable, category, } = req.body;
+    const { uid } = req.body.user;
 
-
+    const user = await User.findOne({ uid: uid });
+    if (!user) {
+        return res.status(404).json({ message: "No user Info found please create account first" })
+    }
     const uploadedImages = await Promise.all(
         req.files.map(async (file) => {
             const result = await cloudinary.uploader.upload(file.path, {
@@ -18,6 +22,7 @@ exports.addProduct = async (req, res) => {
     );
 
     const newProduct = new Product({
+        author: user._id,
         name,
         description,
         price,
@@ -74,7 +79,7 @@ exports.getProduct = (req, res) => {
 // };
 
 // Get products in a specific category
-exports.getProductsInCategory =async (req, res) => {
+exports.getProductsInCategory = async (req, res) => {
     const categories = req.params.category.split(',');
     const limit = Number(req.query.limit) || 10;
     const page = Number(req.query.page) || 1;

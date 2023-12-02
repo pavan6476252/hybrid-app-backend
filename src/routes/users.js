@@ -5,7 +5,7 @@ const Following = require('../schema/followingModel');
 const router = express.Router();
 
 
-router.get('/profile', async (req, res) => {
+router.get('/user/profile', async (req, res) => {
   // const uid = req.user.uid;
   const { uid } = req.body;
 
@@ -21,7 +21,7 @@ router.get('/profile', async (req, res) => {
   }
 });
 
-router.put('/profile', isAuthenticated, async (req, res) => {
+router.put('/user/profile', isAuthenticated, async (req, res) => {
   const uid = req.user.uid;
   const { name, picture } = req.body;
 
@@ -43,7 +43,7 @@ router.put('/profile', isAuthenticated, async (req, res) => {
   }
 });
 
-router.post('/register', isAuthenticated, async (req, res) => {
+router.post('/user/register', isAuthenticated, async (req, res) => {
   const { uid, email, name, picture } = req.user;
 
   try {
@@ -69,7 +69,7 @@ router.post('/register', isAuthenticated, async (req, res) => {
 });
 
 // follow other  user , 
-router.post('/follow/:currentUserId/:otherUserId', isAuthenticated, async (req, res) => {
+router.post('/user/follow/:currentUserId/:otherUserId', isAuthenticated, async (req, res) => {
   try {
     const { currentUserId, otherUserId } = req.params;
 
@@ -106,7 +106,7 @@ router.post('/follow/:currentUserId/:otherUserId', isAuthenticated, async (req, 
 });
 
 // Unfollow a user
-router.delete('/unfollow/:currentUserId/:otherUserId', isAuthenticated, async (req, res) => {
+router.delete('/user/unfollow/:currentUserId/:otherUserId', isAuthenticated, async (req, res) => {
   try {
     const { currentUserId, otherUserId } = req.params;
 

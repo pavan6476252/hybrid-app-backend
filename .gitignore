@@ -4,3 +4,4 @@ src/config/mongodb_config
 src/config/serviceAccount
 src/config/
 .vercel
+.env

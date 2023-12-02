@@ -31,6 +31,9 @@ const userRoutes = require('./src/routes/users')
 const postRoutes = require('./src/routes/posts')
 const likesRoutes = require('./src/routes/likes')
 
+
+
+const storeHome = require('./src/routes/ecom/homeRoute')
 const productRoute = require('./src/routes/ecom/productRoute')
 const categoryRoute = require('./src/routes/ecom/categoryRoute')
 const cartRoute = require('./src/routes/ecom/cartRoute')
@@ -44,6 +47,7 @@ app.use('/api', postRoutes);
 app.use('/api', likesRoutes);
 
 
+app.use('/api', storeHome);
 app.use('/api', productRoute);
 app.use('/api', categoryRoute);
 app.use('/api', cartRoute);
